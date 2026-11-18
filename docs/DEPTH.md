@@ -29,6 +29,8 @@
 | TRAP-09 | 真实边界输入 | 朴素处理会错分 | 保留证据并稳定裁决 | `app/modules/m2_encoding/core.py` | `tests/test_m2_encoding.py::test_trap_2` |
 | TRAP-16 | 真实边界输入 | 朴素处理会错分 | 保留证据并稳定裁决 | `app/modules/m3_fields/core.py` | `tests/test_m3_fields.py::test_trap_2` |
 | TRAP-18 | 真实边界输入 | 朴素处理会错分 | 保留证据并稳定裁决 | `app/modules/m4_content/core.py` | `tests/test_m4_content.py::test_trap_2` |
+| TRAP-19 | 题名跨行，续行形似新档案 | 朴素按行切分会错分 | 引号状态机合并跨行题名，形似记录的续行整段留复核 | `app/modules/m1_intake/core.py` | `tests/test_m1_intake.py::test_continuation_looking_like_record_is_ambiguous` |
+| TRAP-20 | 收尾引号缺失吞掉后续记录 | 朴素 csv 读取静默吞行 | 严格闭合校验，隔离最小行段并从下一可确认记录重同步 | `app/modules/m1_intake/core.py` | `tests/test_m1_intake.py::test_unclosed_quote_does_not_swallow_following_records` |
 
         ## 对账规则
 

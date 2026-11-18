@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Body, Request
 from fastapi.responses import Response
 from .service import execute
 router = APIRouter(tags=["M6-批次导出"])
@@ -12,6 +12,10 @@ def page(request: Request):
 def runs(request: Request):
     execute({"store": request.app.state.store})
     return {"runs": request.app.state.store.all()}
+
+@router.post("/api/export/run")
+def export_run(request: Request, payload: dict = Body(default={})):
+    return execute({**(payload or {}), "store": request.app.state.store})
 
 @router.get("/api/export/evidence.csv")
 def export(request: Request):

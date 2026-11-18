@@ -4,6 +4,7 @@
 |---|---|---:|---|
 | `run_id` | string | 否 | 输入摘要派生的稳定运行编号 |
 | `source_line` | integer | 否 | 原文件物理行号 |
+| `line_end` | integer | 是 | 跨行记录或隔离行段的末行物理行号 |
 | `reason_code` | string | 是 | 隔离或冲突的稳定原因码 |
 | `raw_value` | string | 是 | 未归一的原始证据 |
 | `normalized_value` | string | 是 | 按项目规则得到的值 |
